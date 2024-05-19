@@ -20,5 +20,7 @@ docker run -d -p 5000:5000 \
     --health-interval=30s \
     --health-retries=3 \
     --health-timeout=10s \
+    --cpus=1 \
+    --memory=1g \
     flask-geoip-app
 ```
