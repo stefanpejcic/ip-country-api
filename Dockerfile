@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y wget && \
     rm -rf /var/lib/apt/lists/*
 
 # Expose the port
-EXPOSE 5000
+EXPOSE 80
 
 # Entrypoint
 CMD ["python", "app.py"]
