@@ -31,7 +31,10 @@ def get_country(ip):
 
     country_code = get_country_code(ip)
     if country_code:
-        return jsonify({"ip": ip, "country": country_code}), 200
+        response = jsonify({"ip": ip, "country": country_code})
+        # Set cache-control headers to enable client-side caching for 24 hours (86400 seconds)
+        response.headers['Cache-Control'] = 'public, max-age=86400'
+        return response, 200
     else:
         return jsonify({"error": "Could not find country for the given IP address"}), 404
 
