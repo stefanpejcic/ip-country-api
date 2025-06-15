@@ -2,6 +2,8 @@
 
 Returns 2-letter country code for provided IP address, using MaxMind's GeoLite2 Country database
 
+image is built for both `arm64` and `amd64`.
+
 ## Usage
 
 Example usage:
@@ -58,4 +60,12 @@ docker run -d -p 5000:5000 \
     --cpus=0.1 \
     --memory=0.1g \
     openpanel/ip-country-api
+```
+
+## Build
+
+
+```
+git clone https://github.com/stefanpejcic/ip-country-api
+docker buildx build --platform linux/arm64,linux/amd64 --no-cache -t openpanel/ip-country-api --push ip-country-api/DOCKER/.
 ```
