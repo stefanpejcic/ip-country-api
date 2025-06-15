@@ -2,7 +2,28 @@
 
 Returns 2-letter country code for provided IP address, using MaxMind's GeoLite2 Country database
 
-Usage:
+## Usage
+
+Example usage:
+
+```
+# curl http://185.21.214.214:5000/
+{
+  "country": "RS",
+  "ip": "82.117.26.22"
+}
+```
+
+```
+# curl http://185.241.214.214:5000/11.88.55.44
+{
+  "country": "US",
+  "ip": "11.88.55.44"
+}
+```
+
+
+## Installation
 
 docker compose:
 ```
