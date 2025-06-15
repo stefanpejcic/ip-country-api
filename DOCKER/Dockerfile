@@ -1,7 +1,9 @@
 # Use the official Python image as a base image
-FROM python:3.9-slim
+FROM --platform=linux/$TARGETARCH python:3.9-slim AS base
 
-# Set environment variables
+ARG TARGETARCH
+ARG TARGETOS
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
@@ -21,7 +23,7 @@ RUN apt-get update && apt-get install -y wget && \
     rm -rf /var/lib/apt/lists/*
 
 # Expose the port
-EXPOSE 80
+EXPOSE 5000
 
 # Entrypoint
 CMD ["python", "app.py"]
